@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <meta charset="utf-8" name = "viewport" content ="width=device-width, initial-scale=1.0">
+       <title>eat what?</title>
+       <style>
+        body{
+            background-color: aqua;
+        }
+          .cycle {
+              position: relative;
+              background-color:aquamarine;
+              height: 300px;
+              width: 300px;
+              border: 30px solid rebeccapurple;
+              border-radius: 300px; 
+              display: flex;
+              margin: auto;
+          }
+          .tip{
+              position:absolute;
+            top: 135px;
+            left: 117px;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+           }
+          .cyclepoint{
+            background-color: blueviolet;
+            height: 100px;
+            width: 100px;
+            border-radius: 100px;
+            margin: auto;
+            position: relative;
+          }
+          .cyclepoint-after{
+              transition: 1.4s;
+              /* transform: rotate(0deg); */
+              background-color: blue;
+          }
+          .cyclepoint::after {
+      content: '';
+      position: absolute;
+      left: 37px;
+      top: -48px;
+      
+      border-width: 25px 12.5px;
+      border-style: solid;
+      border-color: transparent;
+      border-bottom-color: yellow;
+}
+#circle2{
+    background-color: royalblue;
+    /* z-index: 999; */
+    width: 1px;
+    height: 300px;
+    transform: rotate(90deg);
+    position: absolute;
+    left: 150px;
+        }
+        #circle1{
+    background-color: royalblue;
+    /* z-index: 999; */
+    width: 1px;
+    height: 300px;
+    transform: rotate(0deg);
+    position: absolute;
+    left: 150px;
+        }
+       </style>
+   </head>
+<body>
+    <div>
+        <h1 style = "text-align: center;font-size: 16px">eat what? that's a question
+        <br / >
+        <span>but now it isn't</span>
+        </h1>
+        <div class = "cycle">
+            <div  id="circle2"></div>
+            <div id = 'circle1'></div>
+            <span style="position: absolute;left: 50px;top:50px;">探鱼？</span>
+            <span style="position: absolute;right: 50px;top:50px;">蟹肉煲？</span>
+            <span style="position: absolute;left: 50px;bottom:50px;">车仔面套餐？</span>
+            <span style="position: absolute;right: 50px;bottom:50px;">吃土？</span>
+            <div></div>
+            <div></div>
+            <div class="tip">吃什么呢？</div>
+            <div class="cyclepoint">
+
+            </div>
+        </div>
+   
+    </div>
+
+    <div class="sector">
+        <div></div>
+    </div>
+    <script>
+       var bt = document.getElementsByClassName('tip')[0];
+       var ch = document.getElementsByClassName('cyclepoint')[0];
+       bt.onclick = function(){
+        var sheet=document.styleSheets[0].cssRules[4]
+        var angle = Math.random()*10000+1000;
+        var option = ['蟹肉煲','土','车仔面套餐','探鱼'];
+        setTimeout(
+            function(){
+                if(angle%360<90)
+         alert('就吃'+option[0]);
+         if(angle%360>90 && angle%360 <180)
+         alert('就吃'+option[1]);
+         if(angle%360>180 && angle%360 <270 )
+         alert('就吃'+option[2]);
+         if(angle%360>270)
+         alert('就吃'+option[3]);
+            },2000
+        )
+        sheet.style.transform = 'rotate('+angle+'deg'+')'
+        // sheet.style.backgroundColor = 'red'
+        
+        // document.styleSheets[0].addRule('.cyclepoint-after','transform:rotate('+angle+')\'');
+           ch.classList.add("cyclepoint-after");
+           setTimeout(() => {
+               ch.classList.remove("cyclepoint-after");
+           }, 1000000);
+        console.log(sheet)
+       }
+       
+     
+    </script>
+
+</body>
+ 
+
+</html>
