@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>submit</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: #cccccc;
+        }
+
+        header {
+            background: #51b7ec;
+            height: 48px;
+        }
+
+        .content {
+            position: absolute;
+            width: 100%;
+            top: 48px;
+            bottom: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            height: 21.76vh;
+            width: 27.6vw;
+            background: #fff;
+            position: relative;
+        }
+
+        input {
+            height: 5vh;
+            width: 20.8vw;
+            margin-bottom: 1.36vh;
+            border: solid 1px #cccccc;
+            border-radius: 3px;
+            padding-left: 2.7vw;
+        }
+
+        .buttontpad {
+            width: 27.6vw;
+            height: 8.84vh;
+            background: white;
+            margin-top: -1.36vh;
+            border-top: #ccc solid 1px;
+        }
+
+        .submitpad {
+            padding: 4.08vh 2.08vw;
+        }
+
+        .egohead {
+            background: url(./egosubmit/img/head.png);
+            width: 8.05vw;
+            height: 12.5vh;
+            position: absolute;
+            background-size: 8.05vw 12.5vh;
+            top: -11vh;
+            left: 9.8vw;
+        }
+
+        .egoleft {
+            background: url(./egosubmit/img/left.png);
+            width: 2.98vw;
+            height: 3.4vh;
+            position: absolute;
+            background-size: 2.98vw 3.4vh;
+            top: -2.12vh;
+            left: 7.55vw;
+        }
+
+        .egoright {
+            background: url(./egosubmit/img/right.png);
+            width: 2.98vw;
+            height: 3.4vh;
+            position: absolute;
+            background-size: 2.98vw 3.4vh;
+            top: -2.12vh;
+            right: 6.95vw;
+        }
+
+        .afterleft {
+            background: url(./egosubmit/img/left0.png);
+            width: 3.6vw;
+            height: 5.57vh;
+            position: absolute;
+            background-size: 3.6vw 5.57vh;
+            top: -5.52vh;
+            left: 9.75vw;
+            opacity: 0;
+        }
+
+        .afterright {
+            background: url(./egosubmit/img/right0.png);
+            width: 4.2vw;
+            height: 5.57vh;
+            position: absolute;
+            background-size: 4.2vw 5.57vh;
+            top: -5.52vh;
+            right: 9.8vw;
+            opacity: 0;
+        }
+
+        .buttontpad {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            background: #51b7ec;
+        }
+
+        .handsout {
+            animation: closeeye .3s ease-in-out;
+            opacity: 0;
+        }
+
+        .lfhandin {
+            animation: lefteyemove .3s ease-in-out;
+            opacity: 1;
+        }
+        .rfhandin {
+            animation: righteyemove .3s ease-in-out;
+            opacity: 1;
+        }
+
+        @keyframes closeeye {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes lefteyemove {
+            from {
+                left: 8.75vw;
+                opacity: 0;
+            }
+
+            to {
+                left: 9.75vw;
+                opacity: 1;
+            }
+        }
+
+        @keyframes righteyemove {
+            from {
+                right: 8.8vw;
+                opacity: 0;
+            }
+
+            to {
+                right: 9.8vw;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <div class="content">
+        <form method="post" class="loginform">
+            <div class='ego'>
+                <div class='egohead'></div>
+                <div class='egoleft'></div>
+                <div class="egoright"></div>
+                <div class="afterleft"> </div>
+                <div class='afterright'></div>
+            </div>
+            <div class="submitpad">
+                <input type="email" required />
+                <input type="password" required onfocus="closeeye()" onblur="openeye()" />
+            </div>
+            <div class="buttontpad">
+                <button>登陆</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        console.log(document.documentElement.clientHeight);
+        let left = document.getElementsByClassName('egoleft')[0];
+        let right = document.getElementsByClassName('egoright')[0];
+        let al = document.getElementsByClassName('afterleft')[0];
+        let ar = document.getElementsByClassName('afterright')[0];
+        function closeeye() {
+            left.classList.add('handsout');
+            right.classList.add('handsout');
+            al.classList.add('lfhandin');
+            ar.classList.add('rfhandin');
+
+
+        }
+        function openeye() {
+            left.classList.remove('handsout');
+            right.classList.remove('handsout');
+            al.classList.remove('lfhandin');
+            ar.classList.remove('rfhandin');
+            console.log('out')
+
+        }
+    </script>
+</body>
+
+</html>
