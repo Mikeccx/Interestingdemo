@@ -57,7 +57,7 @@
         }
 
         .egohead {
-            background: url(./egosubmit/img/head.png);
+            background: url(img/head.png);
             width: 8.05vw;
             height: 12.5vh;
             position: absolute;
@@ -67,7 +67,7 @@
         }
 
         .egoleft {
-            background: url(./egosubmit/img/left.png);
+            background: url(img/left.png);
             width: 2.98vw;
             height: 3.4vh;
             position: absolute;
@@ -77,7 +77,7 @@
         }
 
         .egoright {
-            background: url(./egosubmit/img/right.png);
+            background: url(img/right.png);
             width: 2.98vw;
             height: 3.4vh;
             position: absolute;
@@ -87,7 +87,7 @@
         }
 
         .afterleft {
-            background: url(./egosubmit/img/left0.png);
+            background: url(img/left0.png);
             width: 3.6vw;
             height: 5.57vh;
             position: absolute;
@@ -98,7 +98,7 @@
         }
 
         .afterright {
-            background: url(./egosubmit/img/right0.png);
+            background: url(img/right0.png);
             width: 4.2vw;
             height: 5.57vh;
             position: absolute;
@@ -119,18 +119,34 @@
         }
 
         .handsout {
-            animation: closeeye .3s ease-in-out;
-            opacity: 0;
+            animation: closeeye .3s ease-in-out forwards;
+            /* opacity: 0; */
         }
 
         .lfhandin {
-            animation: lefteyemove .3s ease-in-out;
-            opacity: 1;
+            animation: lefteyemove .3s ease-in-out forwards;
+            /* opacity: 1; */
         }
         .rfhandin {
-            animation: righteyemove .3s ease-in-out;
-            opacity: 1;
+            animation: righteyemove .3s ease-in-out forwards;
+            /* opacity: 1; */
         }
+
+        .handsout1 {
+            animation: closeeye1 .3s ease-in-out forwards;
+            /* opacity: 0; */
+        }
+
+        .lfhandin1 {
+            animation: lefteyemove1 .3s ease-in-out forwards;
+            /* opacity: 1; */
+        }
+        .rfhandin1 {
+            animation: righteyemove1 .3s ease-in-out forwards;
+            /* opacity: 1; */
+        }
+
+        
 
         @keyframes closeeye {
             0% {
@@ -169,6 +185,46 @@
                 opacity: 1;
             }
         }
+
+        /* 1 */
+        @keyframes closeeye1 {
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            0% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes lefteyemove1 {
+            to {
+                left: 8.75vw;
+                opacity: 0;
+            }
+
+            from {
+                left: 9.75vw;
+                opacity: 1;
+            }
+        }
+
+        @keyframes righteyemove1 {
+            to {
+                right: 8.8vw;
+                opacity: 0;
+            }
+
+            from {
+                right: 9.8vw;
+                opacity: 1;
+            }
+        }
+
     </style>
 </head>
 
@@ -199,11 +255,15 @@
         let al = document.getElementsByClassName('afterleft')[0];
         let ar = document.getElementsByClassName('afterright')[0];
         function closeeye() {
+            left.classList.remove('handsout1');
+            right.classList.remove('handsout1');
+            al.classList.remove('lfhandin1');
+            ar.classList.remove('rfhandin1');
+
             left.classList.add('handsout');
             right.classList.add('handsout');
             al.classList.add('lfhandin');
             ar.classList.add('rfhandin');
-
 
         }
         function openeye() {
@@ -211,7 +271,14 @@
             right.classList.remove('handsout');
             al.classList.remove('lfhandin');
             ar.classList.remove('rfhandin');
-            console.log('out')
+            
+            left.classList.add('handsout1');
+            right.classList.add('handsout1');
+            al.classList.add('lfhandin1');
+            ar.classList.add('rfhandin1');
+
+           
+            console.log(document.getElementsByClassName('handsout')[0])
 
         }
     </script>
