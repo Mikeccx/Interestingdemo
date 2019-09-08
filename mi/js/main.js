@@ -11,7 +11,7 @@ function displaycart(e) {
     e.children[1].style.display = "block"
 }
 window.onscroll = function (e) {
-    let elementop = document.getElementsByClassName('content')[0].offsetTop  //该元素和页面顶端的距离
+    let elementop = document.getElementsByClassName('content')[0].offsetTop  //offsetTop返回当前元素相对于其 offsetParent 元素的顶部的距离。
     //  console.log(document.getElementsByClassName('content-top-center')[0].offsetTop)
     //  console.log(document.getElementsByTagName('body')[0])
     let scrolltop = document.documentElement.scrollTop || document.body.scrollTop  //滚动距离
