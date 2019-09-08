@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.4d9362ef422c694a66c1b0465b1192f8.css"],"names":[],"mappings":"AACA,QACE,kBACF,CACA,UACE,SAAS,CACT,QAAS,CACT,WACF","file":"app.4d9362ef422c694a66c1b0465b1192f8.css","sourcesContent":["\n#canvas{\n  background: #FEFDC5;\n}\nhtml,body{\n  padding:0;\n  margin: 0;\n  height: 100%;\n}\n"]}
